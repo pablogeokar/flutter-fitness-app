@@ -18,7 +18,7 @@ class BottomNavScaffold extends StatelessWidget {
         decoration: BoxDecoration(color: DT.bg),
         child: Container(
           decoration: BoxDecoration(
-            color: DT.bottomNavbg,
+            color: DT.bgBlack,
             borderRadius: BorderRadius.circular(30),
           ),
           margin: EdgeInsets.only(bottom: 32, top: 8, left: 24, right: 24),
@@ -70,11 +70,7 @@ class _NavItem extends StatelessWidget {
           color: isSelected ? DT.bg : Colors.transparent,
           shape: BoxShape.circle,
         ),
-        child: Icon(
-          icon,
-          color: isSelected ? DT.bottomNavbg : DT.bg,
-          size: DT.s6,
-        ),
+        child: Icon(icon, color: isSelected ? DT.bgBlack : DT.bg, size: DT.s6),
       ),
     );
   }
