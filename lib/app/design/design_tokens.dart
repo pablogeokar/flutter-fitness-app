@@ -13,6 +13,7 @@ class DT {
   static const rCard = 20.0;
 
   static const bg = Color(0xFFF2EEF9);
+  static const bottomNavbg = Color(0xFF0F1115);
   static const text = Color(0xFF0F1115);
   static const cardYellow = Color(0xFFFFC85D);
   static const cardBlue = Color(0xFFBBD2FF);
