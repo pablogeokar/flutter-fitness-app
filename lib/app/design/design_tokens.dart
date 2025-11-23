@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // DT - Design Token
 class DT {
   // Spacing scale
-  static const sl = 4.0,
+  static const s1 = 4.0,
       s2 = 8.0,
       s3 = 12.0,
       s4 = 16.0,

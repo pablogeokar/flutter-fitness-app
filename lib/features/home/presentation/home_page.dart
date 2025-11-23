@@ -1,5 +1,6 @@
 import 'package:fitness_app/app/design/design_tokens.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,10 +45,48 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            SizedBox(width: DT.s4),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Olá, Pablo",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: DT.textPrimary,
+                    ),
+                  ),
+                  const SizedBox(height: DT.s1),
+                  Text(
+                    'Hoje ${DateFormat('d MMM.').format(DateTime.now())}',
+                    style: TextStyle(fontSize: 14, color: DT.textSecondary),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: DT.bgWhite,
+                borderRadius: BorderRadius.circular(DT.rCardSmall),
+                boxShadow: [
+                  BoxShadow(
+                    color: DT.shadowLight,
+                    blurRadius: 10,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: const Icon(Icons.search, color: DT.iconGrey, size: 20),
+            ),
           ],
         ),
       ),
-      body: Container(),
+      body: SingleChildScrollView(),
     );
   }
 }
