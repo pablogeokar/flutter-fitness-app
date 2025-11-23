@@ -86,7 +86,133 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: SingleChildScrollView(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Daily challenge card
+            _DailyChallengeCard(),
+            // Weekly List Component
+            //_WeeklyListComponent(),
+            // Your PLan Section
+            // PLan Cards
+            // Social Media Card
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _DailyChallengeCard extends StatelessWidget {
+  const _DailyChallengeCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(DT.s5),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [DT.challengeGradientStart, DT.challengeGradientEnd],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(DT.rCard),
+        boxShadow: [
+          BoxShadow(
+            color: DT.shadowLight,
+            blurRadius: 20,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Daily challenge',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    color: DT.textPrimary,
+                  ),
+                ),
+                const SizedBox(height: DT.s2),
+                const Text(
+                  'Do your plan before 09:00 AM',
+                  style: TextStyle(fontSize: 14, color: DT.textSecondary),
+                ),
+                const SizedBox(height: DT.s4),
+                Row(
+                  children: [
+                    _UserChip(
+                      imageUrl:
+                          'https://avatars.githubusercontent.com/u/18231436?v=4',
+                    ),
+                    Transform.translate(
+                      offset: Offset(-8, 0),
+                      child: _UserChip(
+                        imageUrl:
+                            'https://avatars.githubusercontent.com/u/18231436?v=4',
+                      ),
+                    ),
+                    Transform.translate(
+                      offset: Offset(-16, 0),
+                      child: _UserChip(
+                        imageUrl:
+                            'https://avatars.githubusercontent.com/u/18231436?v=4',
+                      ),
+                    ),
+                    Transform.translate(
+                      offset: Offset(-24, 0),
+                      child: _UserChip(
+                        imageUrl:
+                            'https://avatars.githubusercontent.com/u/18231436?v=4',
+                      ),
+                    ),
+                    Transform.translate(
+                      offset: Offset(-32, 0),
+                      child: _UserChip(
+                        imageUrl:
+                            'https://avatars.githubusercontent.com/u/18231436?v=4',
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _UserChip extends StatelessWidget {
+  final String imageUrl;
+  const _UserChip({required this.imageUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 32,
+      height: 32,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(color: DT.bgWhite, width: 2),
+      ),
+      child: ClipOval(
+        child: Image.network(
+          imageUrl,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) => Container(
+            color: DT.iconLightGrey.withValues(alpha: 0.3),
+            child: const Icon(Icons.person, size: 16, color: DT.iconGrey),
+          ),
+        ),
+      ),
     );
   }
 }
